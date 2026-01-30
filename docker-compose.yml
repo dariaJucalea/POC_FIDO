@@ -1,0 +1,75 @@
+services:
+  redis:
+    image: redis:7-alpine
+    command: ["redis-server", "--save", "", "--appendonly", "no"]
+    networks: [net]
+
+  mailhog:
+    image: mailhog/mailhog:v1.0.1
+    networks: [net]
+    ports:
+      - "8025:8025"
+
+  lldap:
+    image: lldap/lldap:latest
+    networks: [net]
+    ports:
+      - "17170:17170"  
+    environment:
+      - LLDAP_LDAP_BASE_DN=dc=localtest,dc=me
+      - LLDAP_LDAP_USER_DN=admin
+      - LLDAP_LDAP_USER_PASS=SuperSecretAdminPass123
+      - LLDAP_JWT_SECRET=SuperLongRandomJwtSecretChangeMe
+    volumes:
+        - ./lldap:/data
+
+  authelia:
+    image: authelia/authelia:4.39.15
+    volumes:
+      - ./authelia/configuration.yml:/config/configuration.yml:rw
+      - ./authelia/db.sqlite3:/config/db.sqlite3
+      - ./authelia/notifications.txt:/config/notifications.txt
+    environment:
+      - TZ=Europe/Bucharest
+    depends_on: [redis, mailhog, lldap]
+    networks: [net]
+
+  bff:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./bff:/app
+    command: ["sh", "-c", "apk add --no-cache openldap-clients >/dev/null && npm i && node server.js"]
+    networks: [net]
+    environment:
+      - LLDAP_ADMIN_USER=admin
+      - LLDAP_ADMIN_PASS=SuperSecretAdminPass123
+      - LLDAP_BASE=http://lldap:17170
+      - LLDAP_LDAP_URL=ldap://lldap:3890
+      - LLDAP_BASE_DN=dc=localtest,dc=me
+
+  frontend:
+    image: node:20-alpine
+    working_dir: /app
+    volumes:
+      - ./frontend/fido2-project:/app
+    command: ["sh", "-c", "npm i && npm run dev -- --host 0.0.0.0 --port 5173"]
+    networks: [net]
+
+  nginx:
+    image: nginx:1.27-alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/snippets:/etc/nginx/snippets:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d:ro
+      - ./certs:/etc/nginx/certs:ro
+    depends_on: [authelia, bff]
+    networks: [net]
+
+
+
+networks:
+  net:
+    driver: bridge
