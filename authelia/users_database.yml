@@ -1,0 +1,23 @@
+users:
+  test:
+    disabled: false
+    displayname: "Test User"
+    password: "$argon2id$v=19$m=65536,t=3,p=4$ocCtnfSN4qClwGDF4jE/ug$7GrRp23HdniOb+kOYgXy6bvJWzgtFwhoukPBZvEWb6g"
+    email: "andreeadariajucalea@gmail.com"
+    groups:
+      - dev
+  alex:
+    disabled: false
+    displayname: "Test User"
+    password: "$argon2id$v=19$m=65536,t=3,p=4$ocCtnfSN4qClwGDF4jE/ug$7GrRp23HdniOb+kOYgXy6bvJWzgtFwhoukPBZvEWb6g"
+    email: "alexandragugu.2@gmail.com"
+    groups:
+      - dev
+  alx:
+    disabled: false
+    displayname: "Test User"
+    password: "$argon2id$v=19$m=65536,t=3,p=4$ocCtnfSN4qClwGDF4jE/ug$7GrRp23HdniOb+kOYgXy6bvJWzgtFwhoukPBZvEWb6g"
+    email: "alexandragugu.2@gmail.com"
+    groups:
+      - dev
+
