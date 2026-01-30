@@ -1,0 +1,285 @@
+
+.dash2-page {
+  min-height: 100vh;
+  width: 100%;
+  padding: 2rem 1.5rem 3rem;
+}
+
+.dash2-shell {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+
+.dash2-topbar {
+  display: grid;
+  grid-template-columns: 220px 1fr auto;
+  gap: 1rem;
+  align-items: center;
+
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border-radius: 22px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.08), 0 18px 40px rgba(0, 0, 0, 0.35);
+  padding: 0.9rem 1rem;
+}
+
+.dash2-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.dash2-brandMark {
+  width: 14px;
+  height: 14px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #3b82f6, #22d3ee);
+  box-shadow: 0 0 18px rgba(34, 211, 238, 0.35);
+}
+
+.dash2-brandText {
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  opacity: 0.95;
+}
+
+.dash2-user {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  justify-content: flex-end;
+}
+
+.dash2-tag {
+  white-space: nowrap;
+  border-radius: 999px;
+}
+
+.dash2-userChip {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.35rem 0.55rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.04);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+}
+
+.dash2-avatar {
+  background: rgba(34, 211, 238, 0.14);
+  box-shadow: 0 0 0 1px rgba(34, 211, 238, 0.28);
+}
+
+.dash2-userMeta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.1;
+}
+
+.dash2-userName {
+  font-weight: 700;
+  opacity: 0.95;
+}
+
+.dash2-logout {
+  opacity: 0.9;
+}
+
+.dash2-hero {
+   margin-top: 1.5rem; 
+  padding: 0;
+
+  display: flex;
+  justify-content: center;
+}
+
+.dash2-heroLeft {
+  width: min(1040px, 100%);
+  min-height: 420px;             
+  padding: 4.5rem 3.5rem;         
+
+  text-align: center;
+  position: relative;
+
+  background: rgba(255, 255, 255, 0.055);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.10),
+    0 26px 70px rgba(0, 0, 0, 0.45);
+
+
+  transform: translateY(0);
+  transition:
+    transform 220ms ease,
+    box-shadow 260ms ease;
+
+  overflow: hidden;
+}
+
+
+.dash2-heroLeft::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  background: radial-gradient(900px 420px at 30% 20%, rgba(34, 211, 238, 0.16), transparent 55%),
+              radial-gradient(700px 380px at 75% 60%, rgba(59, 130, 246, 0.14), transparent 60%);
+  pointer-events: none;
+  opacity: 0.9;
+  transition: opacity 220ms ease;
+}
+
+.dash2-heroLeft::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.08), transparent 55%);
+  pointer-events: none;
+  opacity: 0.45;
+  transition: opacity 220ms ease;
+}
+
+
+.dash2-heroLeft:hover {
+  transform: translateY(-6px) perspective(1200px) rotateX(2deg) rotateY(-2deg);
+  box-shadow:
+    0 0 0 1px rgba(34, 211, 238, 0.22),
+    0 34px 90px rgba(0, 0, 0, 0.55);
+}
+
+.dash2-heroLeft:hover::before {
+  opacity: 1;
+}
+
+.dash2-heroLeft:hover::after {
+  opacity: 0.65;
+}
+
+
+.dash2-heroLeft > * {
+  position: relative;
+  z-index: 1;
+}
+
+.dash2-title {
+  margin: 0;
+  font-size: 3.1rem;
+  letter-spacing: 0.4px;
+  text-shadow: 0 0 26px rgba(34, 211, 238, 0.22);
+}
+
+.dash2-username {
+  color: #c7d2fe;
+}
+
+.dash2-subtitle {
+  margin: 1.05rem auto 0;
+  color: rgba(199, 210, 254, 0.92);
+  max-width: 70ch;
+  font-size: 1.15rem;
+  line-height: 1.6;
+}
+
+
+.dash2-heroActions {
+  margin-top: 2.4rem;
+  display: flex;
+  justify-content: center;
+}
+
+.dash2-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dash2-primary.p-button {
+  background: linear-gradient(135deg, #3b82f6, #22d3ee);
+  border: none;
+  box-shadow: 0 0 26px rgba(34, 211, 238, 0.22);
+
+  padding: 1.05rem 1.6rem;
+  font-size: 1.1rem;
+  border-radius: 999px;
+
+  transform: translateY(0);
+  transition: transform 160ms ease, box-shadow 180ms ease, filter 180ms ease;
+}
+
+.dash2-primary.p-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 34px rgba(34, 211, 238, 0.26);
+  filter: brightness(1.03);
+}
+
+.dash2-primary.p-button:active {
+  transform: translateY(0px);
+}
+
+@keyframes floatY {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-6px); }
+  100% { transform: translateY(0); }
+}
+
+.dash2-heroLeft {
+  animation: floatY 6s ease-in-out infinite;
+}
+
+.dash2-heroLeft:hover {
+  animation-play-state: paused; 
+}
+
+
+@media (max-width: 980px) {
+  .dash2-topbar {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .dash2-user {
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+
+  .dash2-heroLeft {
+    padding: 3rem 1.75rem;
+  }
+
+  .dash2-title {
+    font-size: 2.45rem;
+  }
+
+  .dash2-subtitle {
+    font-size: 1.05rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .dash2-page {
+    padding: 1.25rem 1rem 2.5rem;
+  }
+
+  .dash2-userChip {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .dash2-heroLeft {
+    padding: 2.2rem 1.2rem;
+    border-radius: 22px;
+  }
+
+  .dash2-title {
+    font-size: 2rem;
+  }
+
+  .dash2-subtitle {
+    font-size: 1rem;
+  }
+}

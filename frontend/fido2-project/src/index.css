@@ -1,0 +1,16 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+
+  background:
+    radial-gradient(1200px circle at 50% -20%, #3b82f6 0%, transparent 60%),
+    radial-gradient(800px circle at 80% 30%, #22d3ee 0%, transparent 55%),
+    linear-gradient(180deg, #0b1020 0%, #05070f 100%);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #ffffff;
+}
