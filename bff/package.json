@@ -1,0 +1,10 @@
+{
+  "name": "bff",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "asn1": "^0.2.6",
+    "express": "^4.19.2",
+    "ldapjs": "^3.0.7"
+  }
+}
